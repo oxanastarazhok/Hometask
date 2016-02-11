@@ -1,5 +1,6 @@
 import smtplib
 import argparse
+mail_password = "111111hi"
 parser = argparse.ArgumentParser()
 parser.add_argument("--sender", "-o", type = str, default ="testpython2015@yandex.ru",help="e-mail address of a sender")
 parser.add_argument("--receiver","-r", type = str, default ="drednout.by@gmail.com", help= "e-mail adress of a receiver")
@@ -21,6 +22,6 @@ msg.set_payload(text.encode('utf-8'), 'utf-8')
 
 smtp_obj = smtplib.SMTP(args.host, args.port)
 smtp_obj.starttls()
-smtp_obj.login(args.sender, "111111hi")
+smtp_obj.login(args.sender,mail_password )
 smtp_obj.sendmail(args.sender, args.receiver, msg.as_string())
 smtp_obj.quit()
